@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="QTPriceChecker.Logic.Entities.Base.Product">
+    <Position X="7.75" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAIEAAACAAAAAAAgAAAAAAhAAAAAA=</HashCode>
+      <FileName>Entities\Base\Product.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="SupplierXProducts" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="QTPriceChecker.Logic.Entities.Base.Supplier">
+    <Position X="0.75" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Entities\Base\Supplier.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="SupplierXProducts" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="QTPriceChecker.Logic.Entities.Base.SupplierXProduct">
+    <Position X="4.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAAAAAAAKAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Entities\Base\SupplierXProduct.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Supplier" />
+      <Property Name="Product" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="PriceHistories" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="QTPriceChecker.Logic.Entities.App.PriceHistory">
+    <Position X="4.25" Y="3.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAIAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\App\PriceHistory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SupplierXProduct" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

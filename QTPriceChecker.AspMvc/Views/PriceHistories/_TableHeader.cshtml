@@ -1,0 +1,52 @@
+@*@GeneratedCode*@
+@model IEnumerable<QTPriceChecker.AspMvc.Models.App.PriceHistory>
+@{
+  var orderBy = (string)ViewBag.OrderBy ?? string.Empty;
+}
+<thead>
+ <tr>
+  <th>
+   @if (orderBy.StartsWith("SupplierXProductId") && orderBy.EndsWith("ASC"))
+    {
+     <a asp-action="OrderBy" asp-route-orderBy="SupplierXProductId DESC" class="btn btn-outline"><strong>SupplierXProductId</strong> <i class="fa fa-sort-desc"></i></a>
+    }
+   else if (orderBy.StartsWith("SupplierXProductId") && orderBy.EndsWith("DESC"))
+    {
+     <a asp-action="OrderBy" asp-route-orderBy="" class="btn btn-outline"><strong>SupplierXProductId</strong> <i class="fa fa-sort-asc"></i></a>
+    }
+   else
+    {
+     <a asp-action="OrderBy" asp-route-orderBy="SupplierXProductId ASC" class="btn btn-outline"><strong>SupplierXProductId</strong></a>
+    }
+  </th>
+  <th>
+   @if (orderBy.StartsWith("From") && orderBy.EndsWith("ASC"))
+    {
+     <a asp-action="OrderBy" asp-route-orderBy="From DESC" class="btn btn-outline"><strong>From</strong> <i class="fa fa-sort-desc"></i></a>
+    }
+   else if (orderBy.StartsWith("From") && orderBy.EndsWith("DESC"))
+    {
+     <a asp-action="OrderBy" asp-route-orderBy="" class="btn btn-outline"><strong>From</strong> <i class="fa fa-sort-asc"></i></a>
+    }
+   else
+    {
+     <a asp-action="OrderBy" asp-route-orderBy="From ASC" class="btn btn-outline"><strong>From</strong></a>
+    }
+  </th>
+  <th>
+   @if (orderBy.StartsWith("Price") && orderBy.EndsWith("ASC"))
+    {
+     <a asp-action="OrderBy" asp-route-orderBy="Price DESC" class="btn btn-outline"><strong>Price</strong> <i class="fa fa-sort-desc"></i></a>
+    }
+   else if (orderBy.StartsWith("Price") && orderBy.EndsWith("DESC"))
+    {
+     <a asp-action="OrderBy" asp-route-orderBy="" class="btn btn-outline"><strong>Price</strong> <i class="fa fa-sort-asc"></i></a>
+    }
+   else
+    {
+     <a asp-action="OrderBy" asp-route-orderBy="Price ASC" class="btn btn-outline"><strong>Price</strong></a>
+    }
+  </th>
+  <th></th>
+ </tr>
+</thead>
