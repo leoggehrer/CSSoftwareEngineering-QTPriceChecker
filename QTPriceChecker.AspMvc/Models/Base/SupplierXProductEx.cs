@@ -2,7 +2,7 @@
 {
     partial class SupplierXProduct
     {
-        public string ProductText { get; set; }
+        public string ProductText { get; set; } = string.Empty;
         public List<Supplier>? Suppliers { get; set; }
     }
 }

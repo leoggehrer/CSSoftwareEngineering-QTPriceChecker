@@ -399,6 +399,7 @@ namespace QTPriceChecker.Logic.Controllers
             return result.ToArray();
         }
 
+
         /// <summary>
         /// Returns a subset of items from the repository.
         /// </summary>

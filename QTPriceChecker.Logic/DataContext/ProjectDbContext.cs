@@ -1,6 +1,6 @@
 ﻿//@CodeCopy
 //MdStart
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace QTPriceChecker.Logic.DataContext
 {

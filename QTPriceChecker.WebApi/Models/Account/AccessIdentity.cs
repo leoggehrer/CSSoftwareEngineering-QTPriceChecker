@@ -1,10 +1,9 @@
 ﻿//@CodeCopy
 //MdStart
 #if ACCOUNT_ON
-using QTPriceChecker.Logic.Modules.Common;
-
 namespace QTPriceChecker.WebApi.Models.Account
 {
+    using QTPriceChecker.Logic.Modules.Common;
     /// <summary>
     /// This model represents an account identity.
     /// </summary>

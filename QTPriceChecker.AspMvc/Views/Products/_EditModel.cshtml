@@ -43,7 +43,15 @@
         </div>
     </div>
 </div>
-<hr />
-<h3>Suppliers</h3>
-@Html.ActionLink(string.Empty, "AddSupplier", "SupplierXProducts", new { productId=Model.Id }, new { @class="btn btn-sm btn-outline-success fa fa-plus"})
+@if (Model.Id > 0)
+{
+    <hr />
+    <h3>Suppliers</h3>
+    @Html.ActionLink(string.Empty, "AddSupplier", "SupplierXProducts", new { productId=Model.Id }, new { @class="btn btn-sm btn-outline-success fa fa-plus"})
+
+    foreach (var item in Model.SupplierXProducts)
+    {
+        
+    }
+}
 

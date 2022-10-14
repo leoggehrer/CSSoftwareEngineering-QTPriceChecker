@@ -15,6 +15,8 @@ namespace QTPriceChecker.Logic.Entities.Base
         public string? Description { get; set; }
         public double Quantity { get; set; }
         public UnitOfMeasure Unit { get; set; }
+        [NotMapped]
+        public decimal CurrenPrice { get; internal set; } = 0m;
         public State State { get; set; } = State.Active;
 
         // Navigation properties

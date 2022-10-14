@@ -90,6 +90,18 @@ namespace CommonBase.Extensions
             }
             return result;
         }
+        public static string ExtractBetween(this string source, string startText, string endText)
+        {
+            var result = string.Empty;
+            var sIdx = source.IndexOf(startText) + startText.Length;
+            var eIdx = source.IndexOf(endText) - 1;
+
+            if (sIdx > -1 && eIdx > -1 && sIdx <= eIdx)
+            {
+                result = source.Partialstring(sIdx, eIdx);
+            }
+            return result;
+        }
         public static IEnumerable<string[]> Split(this IEnumerable<string> source, string separator)
         {
             return source.Select(l => string.IsNullOrEmpty(l) ? Array.Empty<string>() : l.Split(separator));

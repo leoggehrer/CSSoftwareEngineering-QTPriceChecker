@@ -1,8 +1,6 @@
 ﻿//@CodeCopy
 //MdStart
 #if ACCOUNT_ON
-using System.Reflection;
-
 namespace QTPriceChecker.Logic.Controllers.Account
 {
     [Modules.Security.Authorize("SysAdmin", "AppAdmin")]
