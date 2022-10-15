@@ -18,14 +18,14 @@
             var supplierFaker = new Faker<Logic.Entities.Base.Supplier>()
                 .RuleFor(e => e.Name, f => f.Company.CompanyName());
             var supplieres = supplierFaker.Generate(10);
-            var supplierXProducts = new List<Logic.Entities.Base.SupplierXProduct>();
+            var supplierXProducts = new List<Logic.Entities.Base.ProductXSupplier>();
 
             foreach (var supp in supplieres)
             {
                 foreach (var prod in products)
                 {
                     var startPrice = 1.0m * Random.Next(1, 35);
-                    var sXp = new Logic.Entities.Base.SupplierXProduct()
+                    var sXp = new Logic.Entities.Base.ProductXSupplier()
                     {
                         Supplier = supp,
                         Product = prod,

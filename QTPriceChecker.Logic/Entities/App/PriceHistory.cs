@@ -11,6 +11,6 @@ namespace QTPriceChecker.Logic.Entities.App
         public decimal Price { get; set; }
 
         // Navigation properties
-        public SupplierXProduct? SupplierXProduct { get; set; }
+        public ProductXSupplier? SupplierXProduct { get; set; }
     }
 }

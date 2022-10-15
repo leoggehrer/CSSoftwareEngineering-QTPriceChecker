@@ -1,0 +1,24 @@
+@*@GeneratedCode*@
+@model QTPriceChecker.AspMvc.Models.Base.ProductXSupplier
+
+<div class="row">
+ <div class="col-md-4">
+  <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+  <input asp-for="Id" type="hidden" />
+  <div class="form-group">
+   <label asp-for="SupplierId" class="control-label"></label>
+   <input asp-for="SupplierId" class="form-control" />
+   <span asp-validation-for="SupplierId" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+   <label asp-for="ProductId" class="control-label"></label>
+   <input asp-for="ProductId" class="form-control" />
+   <span asp-validation-for="ProductId" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+   <label asp-for="CurrentPrice" class="control-label"></label>
+   <input asp-for="CurrentPrice" class="form-control" />
+   <span asp-validation-for="CurrentPrice" class="text-danger"></span>
+  </div>
+ </div>
+</div>

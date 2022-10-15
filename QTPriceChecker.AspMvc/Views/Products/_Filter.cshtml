@@ -33,6 +33,10 @@
    @Html.DropDownListFor(m => m.Unit, valuesUnit, null, new { @class = "form-select" })
    </div>
    <div class="form-group">
+    <label asp-for="CurrenPrice" class="control-label"></label>
+    <input asp-for="CurrenPrice" class="form-control" />
+   </div>
+   <div class="form-group">
     <label asp-for="State" class="control-label"></label>
    @{
     var valuesState = new SelectListItem[]{ new SelectListItem() }.Union(Enum.GetValues(typeof(QTPriceChecker.Logic.Modules.Common.State)).Cast<QTPriceChecker.Logic.Modules.Common.State>().Select(e => new SelectListItem(e.ToString(), e.ToString())));

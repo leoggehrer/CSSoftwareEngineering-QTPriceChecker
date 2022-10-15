@@ -47,9 +47,9 @@ namespace QTPriceChecker.Logic.Models.App
             get => Source.Price;
             set => Source.Price = value;
         }
-        public QTPriceChecker.Logic.Models.Base.SupplierXProduct? SupplierXProduct
+        public QTPriceChecker.Logic.Models.Base.ProductXSupplier? SupplierXProduct
         {
-            get => Source.SupplierXProduct != null ? QTPriceChecker.Logic.Models.Base.SupplierXProduct.Create(Source.SupplierXProduct) : null;
+            get => Source.SupplierXProduct != null ? QTPriceChecker.Logic.Models.Base.ProductXSupplier.Create(Source.SupplierXProduct) : null;
             set => Source.SupplierXProduct = value?.Source;
         }
         ///
@@ -64,7 +64,7 @@ namespace QTPriceChecker.Logic.Models.App
                 SupplierXProductId = other.SupplierXProductId;
                 From = other.From;
                 Price = other.Price;
-                SupplierXProduct = other.SupplierXProduct != null ? QTPriceChecker.Logic.Models.Base.SupplierXProduct.Create((object)other.SupplierXProduct) : null;
+                SupplierXProduct = other.SupplierXProduct != null ? QTPriceChecker.Logic.Models.Base.ProductXSupplier.Create((object)other.SupplierXProduct) : null;
                 RowVersion = other.RowVersion;
                 Id = other.Id;
             }

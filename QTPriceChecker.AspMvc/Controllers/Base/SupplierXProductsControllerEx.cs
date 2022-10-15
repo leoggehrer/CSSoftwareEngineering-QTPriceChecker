@@ -20,7 +20,7 @@ namespace QTPriceChecker.AspMvc.Controllers.Base
             return View("Create", model);
         }
 
-        protected override RedirectToActionResult RedirectAfterAction(ActionMode actionMode, Logic.Entities.Base.SupplierXProduct accessModel)
+        protected override RedirectToActionResult RedirectAfterAction(ActionMode actionMode, Logic.Entities.Base.ProductXSupplier accessModel)
         {
             return RedirectToAction("Edit", "Products", new { id = accessModel.ProductId });
         }

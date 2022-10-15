@@ -1,12 +1,12 @@
 //@GeneratedCode
 namespace QTPriceChecker.Logic.Facades.Base
 {
-    using TModel = Models.Base.SupplierXProduct;
-    using TEntity = Entities.Base.SupplierXProduct;
+    using TModel = Models.Base.ProductXSupplier;
+    using TEntity = Entities.Base.ProductXSupplier;
     using System;
-    public sealed partial class SupplierXProductsFacade : FacadeObject, Contracts.Base.ISupplierXProductsAccess<TModel>
+    public sealed partial class ProductXSuppliersFacade : FacadeObject, Contracts.Base.IProductXSuppliersAccess<TModel>
     {
-        private Contracts.Base.ISupplierXProductsAccess<TEntity> Controller => (ControllerObject as Contracts.Base.ISupplierXProductsAccess<TEntity>)!;
+        private Contracts.Base.IProductXSuppliersAccess<TEntity> Controller => (ControllerObject as Contracts.Base.IProductXSuppliersAccess<TEntity>)!;
 #if ACCOUNT_ON
         public string SessionToken
         {
@@ -14,14 +14,14 @@ namespace QTPriceChecker.Logic.Facades.Base
         }
 #endif
         public int MaxPageSize => Controller.MaxPageSize;
-        public SupplierXProductsFacade()
-        : base(new QTPriceChecker.Logic.Controllers.Base.SupplierXProductsController())
+        public ProductXSuppliersFacade()
+        : base(new QTPriceChecker.Logic.Controllers.Base.ProductXSuppliersController())
         {
             Constructing();
             Constructed();
         }
-        public SupplierXProductsFacade(FacadeObject facadeObject)
-        : base(new QTPriceChecker.Logic.Controllers.Base.SupplierXProductsController(facadeObject.ControllerObject))
+        public ProductXSuppliersFacade(FacadeObject facadeObject)
+        : base(new QTPriceChecker.Logic.Controllers.Base.ProductXSuppliersController(facadeObject.ControllerObject))
         {
             Constructing();
             Constructed();

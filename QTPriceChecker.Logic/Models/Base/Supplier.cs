@@ -42,9 +42,9 @@ namespace QTPriceChecker.Logic.Models.Base
             get => Source.State;
             set => Source.State = value;
         }
-        public System.Collections.Generic.List<QTPriceChecker.Logic.Models.Base.SupplierXProduct> SupplierXProducts
+        public System.Collections.Generic.List<QTPriceChecker.Logic.Models.Base.ProductXSupplier> SupplierXProducts
         {
-            get => Source.SupplierXProducts.Select(e => QTPriceChecker.Logic.Models.Base.SupplierXProduct.Create(e)).ToList();
+            get => Source.SupplierXProducts.Select(e => QTPriceChecker.Logic.Models.Base.ProductXSupplier.Create(e)).ToList();
             set => Source.SupplierXProducts = value.Select(e => e.Source).ToList();
         }
         ///
@@ -58,7 +58,7 @@ namespace QTPriceChecker.Logic.Models.Base
             {
                 Name = other.Name;
                 State = other.State;
-                SupplierXProducts = other.SupplierXProducts.Select(e => QTPriceChecker.Logic.Models.Base.SupplierXProduct.Create((object)e)).ToList();
+                SupplierXProducts = other.SupplierXProducts.Select(e => QTPriceChecker.Logic.Models.Base.ProductXSupplier.Create((object)e)).ToList();
                 RowVersion = other.RowVersion;
                 Id = other.Id;
             }

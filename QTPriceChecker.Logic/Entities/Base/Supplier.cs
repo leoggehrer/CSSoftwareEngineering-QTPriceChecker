@@ -11,6 +11,6 @@ namespace QTPriceChecker.Logic.Entities.Base
         public State State { get; set; } = State.Active;
 
         // Navigation properties
-        public List<SupplierXProduct> SupplierXProducts { get; set; } = new();
+        public List<ProductXSupplier> SupplierXProducts { get; set; } = new();
     }
 }
