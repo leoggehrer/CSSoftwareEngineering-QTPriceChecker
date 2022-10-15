@@ -9,10 +9,13 @@
         @Html.DisplayFor(model => model.Designation)
     </td>
     <td>
-        @Html.DisplayFor(model => model.Quantity)
+        @Html.DisplayFor(model => model.Quantity) @Html.DisplayFor(model => model.Unit)
     </td>
     <td>
-        @Html.DisplayFor(model => model.Unit)
+        @Html.DisplayFor(model => model.MinPrice) EUR
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.MaxPrice) EUR
     </td>
     <td>
         @Html.DisplayFor(model => model.State)

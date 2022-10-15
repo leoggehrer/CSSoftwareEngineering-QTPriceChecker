@@ -1,5 +1,4 @@
-﻿
-using QTPriceChecker.Logic.Modules.Common;
+﻿using QTPriceChecker.Logic.Modules.Common;
 
 namespace QTPriceChecker.Logic.Entities.Base
 {
@@ -16,7 +15,9 @@ namespace QTPriceChecker.Logic.Entities.Base
         public double Quantity { get; set; }
         public UnitOfMeasure Unit { get; set; }
         [NotMapped]
-        public decimal CurrenPrice { get; internal set; } = 0m;
+        public decimal MinPrice => ProductXSuppliers.SelectMany(e => e.PriceHistories).Min(e => e.Price);
+        [NotMapped]
+        public decimal MaxPrice => ProductXSuppliers.SelectMany(e => e.PriceHistories).Max(e => e.Price);
         public State State { get; set; } = State.Active;
 
         // Navigation properties

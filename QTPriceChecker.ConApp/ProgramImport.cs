@@ -4,27 +4,28 @@
 
     partial class Program
     {
-        private static Random Random = new Random();
+        private static Random Random = new();
         static partial void AfterRun()
         {
-            var startDate = DateTime.Now.AddDays(400); 
+            var startDate = DateTime.Now.AddDays(400);
             var productFaker = new Faker<Logic.Entities.Base.Product>()
                 .RuleFor(e => e.Number, f => f.Commerce.Ean13())
                 .RuleFor(e => e.Designation, f => f.Commerce.ProductName())
                 .RuleFor(e => e.Description, f => string.Join(" ", f.Lorem.Words(5)))
                 .RuleFor(e => e.Quantity, f => Random.Next(100, 1000))
                 .RuleFor(e => e.Unit, f => f.PickRandom<Logic.Modules.Common.UnitOfMeasure>());
-            var products = productFaker.Generate(100);
+            var products = productFaker.Generate(750);
             var supplierFaker = new Faker<Logic.Entities.Base.Supplier>()
                 .RuleFor(e => e.Name, f => f.Company.CompanyName());
-            var supplieres = supplierFaker.Generate(10);
+            var supplieres = supplierFaker.Generate(25);
             var supplierXProducts = new List<Logic.Entities.Base.ProductXSupplier>();
 
-            foreach (var supp in supplieres)
+            foreach (var prod in products)
             {
-                foreach (var prod in products)
+                var startPrice = 1.0m * Random.Next(1, 35);
+
+                foreach (var supp in supplieres)
                 {
-                    var startPrice = 1.0m * Random.Next(1, 35);
                     var sXp = new Logic.Entities.Base.ProductXSupplier()
                     {
                         Supplier = supp,
@@ -44,7 +45,7 @@
                 }
             }
 
-            using var suppXprodCtrl = new Logic.Controllers.Base.SupplierXProductsController();
+            using var suppXprodCtrl = new Logic.Controllers.Base.ProductXSuppliersController();
 
             suppXprodCtrl.InsertAsync(supplierXProducts).Wait();
             suppXprodCtrl.SaveChangesAsync().Wait();

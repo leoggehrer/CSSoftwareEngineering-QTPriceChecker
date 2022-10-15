@@ -34,17 +34,31 @@
     }
   </th>
   <th>
-   @if (orderBy.StartsWith("CurrentPrice") && orderBy.EndsWith("ASC"))
+   @if (orderBy.StartsWith("MinPrice") && orderBy.EndsWith("ASC"))
     {
-     <a asp-action="OrderBy" asp-route-orderBy="CurrentPrice DESC" class="btn btn-outline"><strong>CurrentPrice</strong> <i class="fa fa-sort-desc"></i></a>
+     <a asp-action="OrderBy" asp-route-orderBy="MinPrice DESC" class="btn btn-outline"><strong>MinPrice</strong> <i class="fa fa-sort-desc"></i></a>
     }
-   else if (orderBy.StartsWith("CurrentPrice") && orderBy.EndsWith("DESC"))
+   else if (orderBy.StartsWith("MinPrice") && orderBy.EndsWith("DESC"))
     {
-     <a asp-action="OrderBy" asp-route-orderBy="" class="btn btn-outline"><strong>CurrentPrice</strong> <i class="fa fa-sort-asc"></i></a>
+     <a asp-action="OrderBy" asp-route-orderBy="" class="btn btn-outline"><strong>MinPrice</strong> <i class="fa fa-sort-asc"></i></a>
     }
    else
     {
-     <a asp-action="OrderBy" asp-route-orderBy="CurrentPrice ASC" class="btn btn-outline"><strong>CurrentPrice</strong></a>
+     <a asp-action="OrderBy" asp-route-orderBy="MinPrice ASC" class="btn btn-outline"><strong>MinPrice</strong></a>
+    }
+  </th>
+  <th>
+   @if (orderBy.StartsWith("MaxPrice") && orderBy.EndsWith("ASC"))
+    {
+     <a asp-action="OrderBy" asp-route-orderBy="MaxPrice DESC" class="btn btn-outline"><strong>MaxPrice</strong> <i class="fa fa-sort-desc"></i></a>
+    }
+   else if (orderBy.StartsWith("MaxPrice") && orderBy.EndsWith("DESC"))
+    {
+     <a asp-action="OrderBy" asp-route-orderBy="" class="btn btn-outline"><strong>MaxPrice</strong> <i class="fa fa-sort-asc"></i></a>
+    }
+   else
+    {
+     <a asp-action="OrderBy" asp-route-orderBy="MaxPrice ASC" class="btn btn-outline"><strong>MaxPrice</strong></a>
     }
   </th>
   <th></th>

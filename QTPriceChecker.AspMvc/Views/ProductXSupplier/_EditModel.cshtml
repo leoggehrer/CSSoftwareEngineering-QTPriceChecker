@@ -1,5 +1,5 @@
 @*@CustomCode*@
-@model QTPriceChecker.AspMvc.Models.Base.SupplierXProduct
+@model QTPriceChecker.AspMvc.Models.Base.ProductXSupplier
 
 @{
     var selectList = new SelectList(Model!.Suppliers, "Id", "Name");
@@ -18,11 +18,6 @@
         <div class="form-group">
             <label asp-for="ProductText" class="control-label"></label>
             <input asp-for="ProductText" class="form-control" readonly="readonly" />
-        </div>
-        <div class="form-group">
-            <label asp-for="CurrentPrice" class="control-label"></label>
-            <input asp-for="CurrentPrice" class="form-control" />
-            <span asp-validation-for="CurrentPrice" class="text-danger"></span>
         </div>
     </div>
 </div>

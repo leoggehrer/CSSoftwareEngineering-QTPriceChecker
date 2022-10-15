@@ -9,7 +9,10 @@
   @Html.DisplayFor(model => model.ProductId)
  </td>
  <td>
-  @Html.DisplayFor(model => model.CurrentPrice)
+  @Html.DisplayFor(model => model.MinPrice)
+ </td>
+ <td>
+  @Html.DisplayFor(model => model.MaxPrice)
  </td>
  <td>
   @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |

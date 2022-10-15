@@ -1,47 +1,136 @@
-@*@GeneratedCode*@
+@*@CustomCode*@
 @model QTPriceChecker.AspMvc.Models.Base.Product
 
+<style>
+    .row {
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
+    h3 {
+        margin-top: 20px;
+    }
+</style>
+
 <dl class="row">
- <dt class="col-sm-2">
-  @Html.DisplayNameFor(model => model.Number)
- </dt>
- <dd class="col-sm-10">
-  @Html.DisplayFor(model => model.Number)
- </dd>
- <dt class="col-sm-2">
-  @Html.DisplayNameFor(model => model.Designation)
- </dt>
- <dd class="col-sm-10">
-  @Html.DisplayFor(model => model.Designation)
- </dd>
- <dt class="col-sm-2">
-  @Html.DisplayNameFor(model => model.Description)
- </dt>
- <dd class="col-sm-10">
-  @Html.DisplayFor(model => model.Description)
- </dd>
- <dt class="col-sm-2">
-  @Html.DisplayNameFor(model => model.Quantity)
- </dt>
- <dd class="col-sm-10">
-  @Html.DisplayFor(model => model.Quantity)
- </dd>
- <dt class="col-sm-2">
-  @Html.DisplayNameFor(model => model.Unit)
- </dt>
- <dd class="col-sm-10">
-  @Html.DisplayFor(model => model.Unit)
- </dd>
- <dt class="col-sm-2">
-  @Html.DisplayNameFor(model => model.CurrenPrice)
- </dt>
- <dd class="col-sm-10">
-  @Html.DisplayFor(model => model.CurrenPrice)
- </dd>
- <dt class="col-sm-2">
-  @Html.DisplayNameFor(model => model.State)
- </dt>
- <dd class="col-sm-10">
-  @Html.DisplayFor(model => model.State)
- </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Number)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Number)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Designation)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Designation)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Description)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Description)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Quantity)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Quantity)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Unit)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Unit)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.MinPrice)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.MinPrice)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.MaxPrice)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.MaxPrice)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.State)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.State)
+    </dd>
 </dl>
+@{
+    <hr />
+    <h3>Supplier(s)</h3>
+    <p></p>
+    foreach (var item in Model.ProductXSuppliers)
+    {
+        var id = item.Id.ToString();
+        var currPrice = item.PriceHistories.FirstOrDefault();
+        var accoSupp = $"{item.Supplier?.Name}";
+        var accoPrice = $"{currPrice?.Price.ToString("f2")} EUR";
+
+        <div class="accordion" id="@($"accordion{id}")">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="@($"heading{id}")">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="@($"#collaps{id}")" aria-expanded="true" aria-controls="@($"collaps{id}")">
+                        <dl class="row">
+                            <dt class="col-sm-8">@accoSupp</dt>
+                            <dd>@accoPrice</dd>
+                        </dl>
+                    </button>
+                </h2>
+                <div id="@($"collaps{id}")" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="@($"#accordion{1}")">
+                    <div class="accordion-body">
+                        @{
+                            var lastPrice = Decimal.MinValue;
+                            var queryPriceHistory = item.PriceHistories.OrderBy(e => e.From).Select(e =>
+                            {
+                                var style = string.Empty;
+                                var priceSym = string.Empty;
+
+                                if (lastPrice != Decimal.MinValue)
+                                {
+                                    if (lastPrice > e.Price)
+                                    {
+                                        style += "color: green;";
+                                        priceSym += "-";
+                                    }
+                                    else if (lastPrice < e.Price)
+                                    {
+                                        style += "color: red;";
+                                        priceSym += "+";
+                                    }
+                                    else
+                                    {
+                                        style += "color: grey;";
+                                        priceSym += "=";
+                                    }
+                                }
+                                lastPrice = e.Price;
+                                return new { Model = e, Style = style, PriceSym = priceSym };
+                            });
+                            foreach (var innerItem in queryPriceHistory.Reverse())
+                            {
+                                <dl class="row" style="@innerItem.Style">
+                                    <dt class="col-sm-4">
+                                        @innerItem.Model.From.ToString()
+                                    </dt>
+                                    <dd class="col-sm-2">
+                                        @innerItem.Model.Price.ToString("f2") EUR
+                                    </dd>
+                                    <dd class="col-sm-2">
+                                        @innerItem.PriceSym
+                                    </dd>
+                                </dl>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

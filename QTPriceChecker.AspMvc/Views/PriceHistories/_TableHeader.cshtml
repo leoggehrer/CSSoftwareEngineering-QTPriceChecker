@@ -6,17 +6,17 @@
 <thead>
  <tr>
   <th>
-   @if (orderBy.StartsWith("SupplierXProductId") && orderBy.EndsWith("ASC"))
+   @if (orderBy.StartsWith("ProductXSupplierId") && orderBy.EndsWith("ASC"))
     {
-     <a asp-action="OrderBy" asp-route-orderBy="SupplierXProductId DESC" class="btn btn-outline"><strong>SupplierXProductId</strong> <i class="fa fa-sort-desc"></i></a>
+     <a asp-action="OrderBy" asp-route-orderBy="ProductXSupplierId DESC" class="btn btn-outline"><strong>ProductXSupplierId</strong> <i class="fa fa-sort-desc"></i></a>
     }
-   else if (orderBy.StartsWith("SupplierXProductId") && orderBy.EndsWith("DESC"))
+   else if (orderBy.StartsWith("ProductXSupplierId") && orderBy.EndsWith("DESC"))
     {
-     <a asp-action="OrderBy" asp-route-orderBy="" class="btn btn-outline"><strong>SupplierXProductId</strong> <i class="fa fa-sort-asc"></i></a>
+     <a asp-action="OrderBy" asp-route-orderBy="" class="btn btn-outline"><strong>ProductXSupplierId</strong> <i class="fa fa-sort-asc"></i></a>
     }
    else
     {
-     <a asp-action="OrderBy" asp-route-orderBy="SupplierXProductId ASC" class="btn btn-outline"><strong>SupplierXProductId</strong></a>
+     <a asp-action="OrderBy" asp-route-orderBy="ProductXSupplierId ASC" class="btn btn-outline"><strong>ProductXSupplierId</strong></a>
     }
   </th>
   <th>

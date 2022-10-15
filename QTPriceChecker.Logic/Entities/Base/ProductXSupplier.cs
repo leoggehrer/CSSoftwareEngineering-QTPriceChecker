@@ -10,7 +10,9 @@ namespace QTPriceChecker.Logic.Entities.Base
         public int ProductId { get; set; }
 
         [NotMapped]
-        public decimal CurrentPrice { get; set; }
+        public decimal MinPrice => PriceHistories.Min(e => e.Price);
+        [NotMapped]
+        public decimal MaxPrice => PriceHistories.Max(e => e.Price);
 
         // Navigation properties
         public Supplier? Supplier { get; set; }

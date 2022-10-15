@@ -34,32 +34,13 @@
             }
         </th>
         <th>
-            @if (orderBy.StartsWith("Quantity") && orderBy.EndsWith("ASC"))
-            {
-                <a asp-action="OrderBy" asp-route-orderBy="Quantity DESC" class="btn btn-outline"><strong>Quantity</strong> <i class="fa fa-sort-desc"></i></a>
-            }
-            else if (orderBy.StartsWith("Quantity") && orderBy.EndsWith("DESC"))
-            {
-                <a asp-action="OrderBy" asp-route-orderBy="" class="btn btn-outline"><strong>Quantity</strong> <i class="fa fa-sort-asc"></i></a>
-            }
-            else
-            {
-                <a asp-action="OrderBy" asp-route-orderBy="Quantity ASC" class="btn btn-outline"><strong>Quantity</strong></a>
-            }
+            <a class="btn btn-outline" href="#"><strong>Quantity</strong></a>
         </th>
         <th>
-            @if (orderBy.StartsWith("Unit") && orderBy.EndsWith("ASC"))
-            {
-                <a asp-action="OrderBy" asp-route-orderBy="Unit DESC" class="btn btn-outline"><strong>Unit</strong> <i class="fa fa-sort-desc"></i></a>
-            }
-            else if (orderBy.StartsWith("Unit") && orderBy.EndsWith("DESC"))
-            {
-                <a asp-action="OrderBy" asp-route-orderBy="" class="btn btn-outline"><strong>Unit</strong> <i class="fa fa-sort-asc"></i></a>
-            }
-            else
-            {
-                <a asp-action="OrderBy" asp-route-orderBy="Unit ASC" class="btn btn-outline"><strong>Unit</strong></a>
-            }
+            <a class="btn btn-outline" href="#"><strong>MinPrice</strong></a>
+        </th>
+        <th>
+            <a class="btn btn-outline" href="#"><strong>MaxPrice</strong></a>
         </th>
         <th>
             @if (orderBy.StartsWith("State") && orderBy.EndsWith("ASC"))

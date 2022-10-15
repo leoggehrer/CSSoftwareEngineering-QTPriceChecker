@@ -2,7 +2,7 @@
 
 namespace QTPriceChecker.AspMvc.Controllers.Base
 {
-    partial class SupplierXProductsController
+    partial class ProductXSuppliersController
     {
         public async Task<IActionResult> AddSupplier(int productId)
         {
@@ -11,7 +11,7 @@ namespace QTPriceChecker.AspMvc.Controllers.Base
             var product = await prodCtrl.GetByIdAsync(productId);
             var suppliers = await supCtrl.GetAllAsync();
 
-            var model = new Models.Base.SupplierXProduct
+            var model = new Models.Base.ProductXSupplier
             {
                 ProductId = productId,
                 ProductText =  product != null ? product.Designation : string.Empty,
