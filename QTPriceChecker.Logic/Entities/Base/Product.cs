@@ -15,9 +15,9 @@ namespace QTPriceChecker.Logic.Entities.Base
         public double Quantity { get; set; }
         public UnitOfMeasure Unit { get; set; }
         [NotMapped]
-        public decimal MinPrice => ProductXSuppliers.SelectMany(e => e.PriceHistories).Min(e => e.Price);
+        public decimal CurrentMinPrice => ProductXSuppliers.Any() ? ProductXSuppliers.Min(e => e.CurrentPrice) : 0m;
         [NotMapped]
-        public decimal MaxPrice => ProductXSuppliers.SelectMany(e => e.PriceHistories).Max(e => e.Price);
+        public decimal CurrentMaxPrice => ProductXSuppliers.Any() ? ProductXSuppliers.Max(e => e.CurrentPrice) : 0m;
         public State State { get; set; } = State.Active;
 
         // Navigation properties
